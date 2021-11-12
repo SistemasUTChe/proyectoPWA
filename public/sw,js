@@ -1,0 +1,50 @@
+var staticCacheName = "pwa-v" + new Date().getTime();
+    var filesToCache = [
+    //Rutas de archivos que deseas prevalecer sin conexión 
+    '/',
+    'public/',
+    'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap',
+    '/offline.html'
+    ];
+
+  // Instalar en caché
+  /*self.addEventListener("install", event => {
+    console.log("SW: Instalación - inicio");
+      this.skipWaiting();
+      event.waitUntil(
+          caches.open(staticCacheName)
+              .then(cache => {
+                  return cache.addAll(filesToCache);
+              })
+      )
+      console.log("SW: Instalación - final");
+  });
+
+  // Limpiar caché y activar
+  self.addEventListener('activate', event => {
+      event.waitUntil(
+          caches.keys().then(cacheNames => {
+              return Promise.all(
+                  cacheNames
+                      .filter(cacheName => (cacheName.startsWith("pwa-")))
+                      .filter(cacheName => (cacheName !== staticCacheName))
+                      .map(cacheName => caches.delete(cacheName))
+              );
+          })
+      );
+  });*/
+
+  // Revisar caché cuando no hay conexión
+  self.addEventListener("fetch", event => {
+      event.respondWith(
+          caches.match(event.request)
+              .then(response => {
+                  console.log(event.request);
+                  return response || fetch(event.request);
+              })
+              .catch(() => {
+                  console.log("No encontrado", event.request);
+                  //return caches.match('/offline.html');
+              })
+      )
+  });
