@@ -39,7 +39,9 @@ class MessageController extends Controller
         $mensaje = new Message();
         $mensaje->user = $request->input('user');
         $mensaje->message = $request->input('message');
-
+        $mensaje->latitude = $request->input('lat');
+        $mensaje->longitude = $request->input('lng');
+        $mensaje->photo = $request->input('photo');
         $mensaje->save();
 
         $data = [
