@@ -1,6 +1,11 @@
 {
     "name": "PWA Laravel",
     "short_name": "PWA",
+    "lang": "es",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "#6777ef",
     "icons": [
         {
             "src": "icons/icon-72x72.png",
@@ -42,10 +47,6 @@
             "type": "image/png",
             "sizes": "512x512"
         }
-    ],
-    "lang": "es",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "white",
-    "theme_color": "white"
+    ]
+ 
 }
