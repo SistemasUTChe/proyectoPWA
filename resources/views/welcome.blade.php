@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-        
+
         <title>Laravel PWA</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <link rel="manifest" href="{{ asset('manifest.json') }}">
+        <link rel="manifest" href="https://www.pruebas-utche.website/manifest.json">
 
         <!-- Styles -->
         <style>
@@ -236,7 +236,7 @@
         </div>
     </body>
 </html>
-<script src="{{ asset('/services.js') }}"></script>
+<script src="https://www.pruebas-utche.website/services.js"></script>
 <script>
         window.onload = () => {
             if ( navigator.serviceWorker ) {
