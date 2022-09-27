@@ -240,12 +240,9 @@
 <script>
         window.onload = () => {
             if ( navigator.serviceWorker ) {
-                alert("Si service worker actual");
                 navigator.serviceWorker
                     .register('/services.js')
                     .then(function(){ console.log("Servicio Registrado");});
             }
-            else
-                alert("No acepta service worker");
         }
 </script>
