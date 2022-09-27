@@ -4,10 +4,12 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 if ((isset($_SERVER["HTTP_X_FORWARDED_PROTO"]) && $_SERVER["HTTP_X_FORWARDED_PROTO"] === 'http')){
+    
     $redirect = 'https://' . $SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . $redirect);
     exit();
+
 }
 
 
