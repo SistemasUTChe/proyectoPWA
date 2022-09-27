@@ -123,7 +123,7 @@
             }
         </style>
            <meta name="theme-color" content="#6777ef"/>
-           <link rel="apple-touch-icon" href="{{ asset('icons/icon-512x512.png') }}">
+           <link rel="apple-touch-icon" href="{{ asset('/icons/icon-512x512.png') }}">
  
     </head>
     <body class="antialiased">
@@ -236,7 +236,7 @@
         </div>
     </body>
 </html>
-<script src="/services.js"></script>
+<script src="{{ asset('/services.js') }}"></script>
 <script>
         window.onload = () => {
             if ( navigator.serviceWorker ) {
