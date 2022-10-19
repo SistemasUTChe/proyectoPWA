@@ -2,8 +2,7 @@ var staticCacheName = "pwa-v" + new Date().getTime();
     var filesToCache = [
     //Rutas de archivos que deseas prevalecer sin conexión 
     '/',
-    'public/',
-    'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap',
+     'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap',
     '/offline.html'
     ];
 
@@ -18,7 +17,7 @@ var staticCacheName = "pwa-v" + new Date().getTime();
               })
               .catch(() => {
                   console.log("No encontrado", event.request);
-                  //return caches.match('/offline.html');
+                  return caches.match('/offline.html');
               })
       )
   });
