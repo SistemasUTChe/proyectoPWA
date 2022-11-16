@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mensajero</title>
+    <title>Twittor</title>
 
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/libs/plugins/mdtoast.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 
     <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
@@ -41,7 +42,7 @@
 
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <meta name="apple-mobile-web-app-title" content="Mensajero!">
+    <meta name="apple-mobile-web-app-title" content="Twittor!">
 
 </head>
 <body>
@@ -56,6 +57,7 @@
         </span>
         <!-- Fin Titulo -->
 
+        <!-- Modal -->
         <div id="modal" class="oculto">
             <img id="modal-avatar" src="img/avatars/spiderman.jpg">
 
@@ -76,55 +78,26 @@
                 <i class="fa fa-paper-plane"></i>
             </div>
 
-            <!--<div id="post-btn" class="fab-marker">
+            <div id="post-btn" class="fab-marker">
                 <i class="fa fa-map-marker-alt"></i>
             </div>
 
             <div id="post-btn" class="fab-photo">
                 <i class="fa fa-image"></i>
-            </div>-->
+            </div>
 
         </div>
-        <!-- Fin Modal -->
-
-        <!-- Modal -->
-        <!--<div id="modal" class="oculto">
-            <img id="modal-avatar" src="img/avatars/spiderman.jpg">
-
-            <span class="first"> 
-                <span id="titulo-modal">Nuevo mensaje</span>
-                <span id="cancel-btn" class="fa fa-times"></span>
-            </span>
-            
-
-            <div class="nuevo-mensaje">
-                <textarea id="txtMensaje" placeholder="Nuevo mensaje..." rows="5"></textarea>
-            
-                <p>Prueba de visualizacion</p>            
-            </div>
-
-            
-            <!-- boton de enviar -->
-
-            <!--<div id="post-btn" class="fab">
-                <i class="fa fa-paper-plane"></i>
-            </div>
-
-            <!--<div id="post-btn" class="fab-marker">
-                <i class="fa fa-map-marker-alt"></i>
-            </div>
-
-           <div id="post-btn" class="fab-photo">
-                <i class="fa fa-image"></i>
-            </div>-->
-
-        <<!--</div>
         <!-- Fin Modal -->
 
 
         <!-- Seleccion de personaje -->
         <div id="seleccion" class="seleccion animated fadeIn fast" align="center">
         
+            <!-- Botón de notificaciones -->
+            <button class="oculto btn-noti-activadas">Notificaciones Activadas</button>
+            <button class="oculto btn-noti-desactivadas">Notificaciones Desactivadas</button>
+            <!-- Fin de boton de notificaciones -->
+
             <div>
                 <img data-user="spiderman" src="img/avatars/spiderman.jpg" alt="spiderman" class="seleccion-avatar">
             </div>
@@ -153,7 +126,7 @@
         <ul id="timeline" class="timeline oculto">
             
             <!-- Mensaje -->
-            <!--<li class="animated fadeIn fast">
+            <!-- <li class="animated fadeIn fast">
                 <div class="avatar">
                     <img src="img/avatars/spiderman.jpg">
                 </div>
@@ -166,7 +139,7 @@
                     
                     <div class="arrow"></div>
                 </div>
-            </li>-->
+            </li> -->
             <!-- Fin del mensaje -->
 
         </ul>
@@ -175,9 +148,9 @@
 
       
     
-        <script src="js/libs/jquery.js"></script>
-        <script src="js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/libs/plugins/mdtoast.min.js"></script>
-
+        <script src="js/app.js"></script>
+    
 </body>
 </html>
