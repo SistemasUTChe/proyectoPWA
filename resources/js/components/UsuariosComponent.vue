@@ -159,9 +159,19 @@
                             },
                     body: JSON.stringify( data )
                     })
-                .then( res => res.json() )
-                .then( res => console.log( 'componente vue', res ))
-                .catch( err => console.log( 'componente vue', err ));
+                .then( response => {
+                    this.usuario.name = '';
+                    this.usuario.email = '';
+                    this.usuario.password = '';
+                    this.errors = [];
+                    this.getUsuarios();
+                    $('#createModal').modal('hide');
+
+                } )
+                //.then( res => console.log( 'componente vue', res ))
+                .catch( eerror =>{
+                    this.errors = error.response.data
+                });
 
                 /*axios.post(url, {
                     name : this.usuario.name,
