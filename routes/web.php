@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/', function () {
+    return view('mensajero');
 });
 
 Route::view('/usuarios', 'usuarios.index')->name('usuarios.index');
 
-Route::get('/mensajero', function () {
-    return view('mensajero');
-});

@@ -1,18 +1,17 @@
 // imports
-importScripts('https://cdn.jsdelivr.net/npm/pouchdb@7.0.0/dist/pouchdb.min.js')
+importScripts('js/pouchdb.min.js')
 
 importScripts('js/sw-db.js');
 importScripts('js/sw-utils.js');
 
 
-const STATIC_CACHE    = 'static-v2';
-const DYNAMIC_CACHE   = 'dynamic-v1';
-const INMUTABLE_CACHE = 'inmutable-v1';
+const STATIC_CACHE    = 'static-v3';
+const DYNAMIC_CACHE   = 'dynamic-v2';
+const INMUTABLE_CACHE = 'inmutable-v2';
 
 
 const APP_SHELL = [
     '/',
-    'index.html',
     'css/style.css',
     'img/favicon.ico',
     'img/avatars/hulk.jpg',
@@ -23,8 +22,6 @@ const APP_SHELL = [
     'js/app.js',
     'js/camara-class.js',
     'js/sw-utils.js',
-    'js/libs/plugins/mdtoast.min.js',
-    'js/libs/plugins/mdtoast.min.css'
 ];
 
 const APP_SHELL_INMUTABLE = [
@@ -32,7 +29,9 @@ const APP_SHELL_INMUTABLE = [
     'https://fonts.googleapis.com/css?family=Lato:400,300',
     'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css',
     'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js',
-    'https://cdn.jsdelivr.net/npm/pouchdb@7.0.0/dist/pouchdb.min.js'
+    'js/libs/plugins/mdtoast.min.js',
+    'js/libs/plugins/mdtoast.min.css',
+    'js/pouchdb.min.js'
 ];
 
 
