@@ -1,5 +1,3 @@
-
-
 // Guardar  en el cache dinamico
 function actualizaCacheDinamico( dynamicCache, req, res ) {
 
@@ -51,11 +49,10 @@ function manejoApiMensajes( cacheName, req ) {
     } else if ( req.clone().method === 'POST' ) {
         // POSTEO de un nuevo mensaje
 
-        console.log("api mensajes peticion");
         if ( self.registration.sync ) {
             return req.clone().text().then( body =>{
     
-                // console.log(body);
+                console.log(body);
                 const bodyObj = JSON.parse( body );
                 return guardarMensaje( bodyObj );
     

@@ -23,6 +23,8 @@ function guardarMensaje( mensaje ) {
 function postearMensajes() {
 
     const posteos = [];
+    const usuarios = [];
+    const mensajes = [];
 
     return db.allDocs({ include_docs: true }).then( docs => {
 
@@ -31,24 +33,53 @@ function postearMensajes() {
 
             const doc = row.doc;
 
-            const fetchPom =  fetch('https://www.pruebas-utche.website/api/messages', {
+            console.log( doc );
+            if (doc.message){
+                const fetchPom =  fetch('https://www.pruebas-utche.website/api/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify( doc )
+                    }).then( res => {
+
+                        return db.remove( doc );
+
+                    });
+                
+                posteos.push( fetchPom );
+            }
+            if (doc.name){
+                const fetchUser =  fetch('http//localhost:8000/api/usuarios', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify( doc )
+                    }).then( res => {
+
+                        return db.remove( doc );
+
+                    });
+                
+                usuarios.push( fetchUser );
+
+            }
+            if (doc.titulo){
+                
+                const fetchPush = fetch('http://localhost:3000/api/push', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify( doc )
-                }).then( res => {
+                })
+            .then( console.log );
 
-                    return db.remove( doc );
-
-                });
-            
-            posteos.push( fetchPom );
-
+             mensajes.push ( fetchPush );
+        }
 
         }); // fin del foreach
 
-        return Promise.all( posteos );
+        return Promise.all( posteos, usuarios, mensajes );
 
     });
 
