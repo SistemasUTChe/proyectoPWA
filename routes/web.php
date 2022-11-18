@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 Route::view('/usuarios', 'usuarios.index')->name('usuarios.index');
 
+Route::get('/mensajero', function () {
+    return view('mensajero');
+});

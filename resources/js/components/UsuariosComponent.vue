@@ -112,11 +112,11 @@
 <script>
     export default {
         created: function (){
-            console.log('Creacion componente');
+            console.log('Creacion componente Modificado');
             this.getUsuarios();
         },
         mounted() {
-            console.log('Component mounted.');
+            console.log('Component mounted. Modificado');
         },
         data(){
             return {
@@ -143,9 +143,27 @@
                 });
             },
             createUsuario: function() {
-                var url = 'https://localhost:3000/api/usuarios';
-                data = 
-                axios.post(url, {
+                var url = 'api/usuarios';
+                var data = {
+                    name: this.usuario.name,
+                    email: this.usuario.email,
+                    password: this.usuario.password
+                    };
+
+                console.log('Guardar con fetch.');
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                            'Content-Type': 'application/json'
+                            },
+                    body: JSON.stringify( data )
+                    })
+                .then( res => res.json() )
+                .then( res => console.log( 'componente vue', res ))
+                .catch( err => console.log( 'componente vue', err ));
+
+                /*axios.post(url, {
                     name : this.usuario.name,
                     email : this.usuario.email,
                     password: this.usuario.password
@@ -159,7 +177,7 @@
 
                 }).catch(error =>{
                     this.errors = error.response.data
-                });
+                });*/
             },
             editUsuario: function(usuario) {
                 this.usuario.id = usuario._id;
