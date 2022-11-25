@@ -20,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('messages', App\Http\Controllers\Api\MessageController::class);
 
+Route::apiResources([
+    'usuarios' => App\Http\Controllers\Api\UsuarioController::class,
+]);

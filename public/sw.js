@@ -5,14 +5,13 @@ importScripts('js/sw-db.js');
 importScripts('js/sw-utils.js');
 
 
-const STATIC_CACHE    = 'static-v2';
-const DYNAMIC_CACHE   = 'dynamic-v1';
-const INMUTABLE_CACHE = 'inmutable-v1';
+const STATIC_CACHE    = 'static-v3';
+const DYNAMIC_CACHE   = 'dynamic-v2';
+const INMUTABLE_CACHE = 'inmutable-v2';
 
 
 const APP_SHELL = [
     '/',
-    'index.html',
     'css/style.css',
     'img/favicon.ico',
     'img/avatars/hulk.jpg',
@@ -21,18 +20,18 @@ const APP_SHELL = [
     'img/avatars/thor.jpg',
     'img/avatars/wolverine.jpg',
     'js/app.js',
+    'js/camara-class.js',
     'js/sw-utils.js',
-    'js/libs/plugins/mdtoast.min.js',
-    'js/libs/plugins/mdtoast.min.css'
 ];
 
 const APP_SHELL_INMUTABLE = [
     'https://fonts.googleapis.com/css?family=Quicksand:300,400',
     'https://fonts.googleapis.com/css?family=Lato:400,300',
-    'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
     'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css',
     'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js',
-    'https://cdn.jsdelivr.net/npm/pouchdb@7.0.0/dist/pouchdb.min.js'
+    'js/libs/plugins/mdtoast.min.js',
+    'js/libs/plugins/mdtoast.min.css',
+    'js/pouchdb.min.js'
 ];
 
 
@@ -42,11 +41,9 @@ self.addEventListener('install', e => {
 
     const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
         cache.addAll( APP_SHELL ));
-
+    
     const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
         cache.addAll( APP_SHELL_INMUTABLE ));
-
-
 
     e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
 
@@ -86,6 +83,7 @@ self.addEventListener( 'fetch', e => {
     if ( e.request.url.includes('/api') || e.request.url.includes('https://www.pruebas-utche.website/api/messages') ) {
 
         // return respuesta????
+        console.log("api mensajes");
         respuesta = manejoApiMensajes( DYNAMIC_CACHE, e.request );
 
     } else {
@@ -122,6 +120,8 @@ self.addEventListener('sync', e => {
     console.log('SW: Sync');
 
     if ( e.tag === 'nuevo-post' ) {
+
+        console.log("Guardar informacion al servidor");
 
         // postear a BD cuando hay conexión
         const respuesta = postearMensajes();
