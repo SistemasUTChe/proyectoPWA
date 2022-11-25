@@ -35,6 +35,7 @@ function postearMensajes() {
 
             console.log( doc );
             if (doc.message){
+                console.log("Guardar mensaje");
                 const fetchPom =  fetch('https://www.pruebas-utche.website/api/messages', {
                     method: 'POST',
                     headers: {
@@ -50,7 +51,8 @@ function postearMensajes() {
                 posteos.push( fetchPom );
             }
             if (doc.name){
-                const fetchUser =  fetch('http//localhost:8000/api/usuarios', {
+                console.log("Guardar usuario");
+                const fetchUser =  fetch('http://localhost:8000/api/usuarios', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -66,13 +68,17 @@ function postearMensajes() {
 
             }
             if (doc.titulo){
-                
+                console.log("Enviar notificacion push");
                 const fetchPush = fetch('http://localhost:3000/api/push', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify( doc )
                 })
-            .then( console.log );
+            .then( res => {
+
+                return db.remove( doc );
+
+            });
 
              mensajes.push ( fetchPush );
         }

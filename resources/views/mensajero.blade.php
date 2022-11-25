@@ -116,6 +116,10 @@
             <button class="oculto btn-noti-activadas">Notificaciones Activadas</button>
             <button class="oculto btn-noti-desactivadas">Notificaciones Desactivadas</button>
             <!-- Fin de boton de notificaciones -->
+            <a href="{{ route('usuarios.index') }}" class="btn btn-success">
+            Usuarios             
+            </a>
+            <button class="btn-noti-activadas">Usuarios</button>
 
             <div>
                 <img data-user="spiderman" src="img/avatars/spiderman.jpg" alt="spiderman" class="seleccion-avatar">

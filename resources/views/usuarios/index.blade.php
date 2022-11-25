@@ -10,7 +10,9 @@
                     <usuario-component></usuario-component>
                 </div>
 
-
+                <a href="{{ route('inicio') }}" class="btn btn-success">
+                Mensajero             
+                </a>
             </div>
         </div>
     </div>

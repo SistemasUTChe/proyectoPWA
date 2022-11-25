@@ -5,7 +5,7 @@ class Camara {
     constructor( videoNode ) {
 
         this.videoNode = videoNode;
-        console.log('Camara Class init');
+//        console.log('Camara Class init');
     }
 
 

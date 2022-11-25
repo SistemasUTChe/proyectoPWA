@@ -241,18 +241,6 @@ postBtn.on('click', function() {
         return;
     }
 
-/*    var data = {
-        message: mensaje,
-        user: usuario
-    };*/
-
-/*    var data = {
-        message: mensaje,
-        user: usuario,
-        lat: lat,
-        lng: lng,
-    };*/
-
     var data = {
         message: mensaje,
         user: usuario,
@@ -301,7 +289,7 @@ function getMensajes() {
         .then( res => res.json() )
         .then( posts => {
 
-            console.log(posts);
+//            console.log(posts);
             posts.forEach( post =>
                 crearMensajeHTML( post.message, post.user, post.latitude, post.longitude, post.photo ));
 
@@ -318,7 +306,7 @@ function getSubscripciones() {
         .then( res => res.json() )
         .then( subscripciones => {
 
-            console.log( subscripciones.subscripciones );
+  //          console.log( subscripciones.subscripciones );
             var contenidos = subscripciones.subscripciones;
             contenidos.forEach( subscripcion =>{
                 fetch('http://localhost:3000/api/subscribe', {
