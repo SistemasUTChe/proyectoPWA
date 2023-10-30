@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <link rel="manifest" href="https://www.pruebas-utche.website/manifest.json">
+        <link rel="manifest" href="manifest.json">
 
         <!-- Styles -->
         <style>
@@ -236,7 +236,7 @@
         </div>
     </body>
 </html>
-<script src="https://www.pruebas-utche.website/services.js"></script>
+<!--<script src="/services.js"></script>-->
 <script>
         window.onload = () => {
             if ( navigator.serviceWorker ) {

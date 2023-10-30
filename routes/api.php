@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('messages', App\Http\Controllers\Api\MessageController::class);
 
+Route::apiResource('applicants', App\Http\Controllers\Api\ApplicantController::class);
